@@ -1,29 +1,35 @@
+typedef enum { t, f } boolean;
+
+
 typedef struct symbolTable{
     int *valueI;
-    char *valueS;
+    char *valueSt;
     char *valueC;
     float *valueF;
     double *valueD;
     long *valueL;
-    short *valueS;
-    symbolTable * next;
+    short *valueSh;
+    struct symbolTable * next;
     char *valueName;
+    boolean valueB;
 }symbolTable;
 
 symbolTable *globalSymbolTable;
 
-void *putsymI (symbolTable *table, char *name, int value);
+
 symbolTable *getsym (symbolTable *table, char *name);
 
-void *putsymS (symbolTable *table, char *name, char* value);
+void *putsymI (symbolTable *table, char *name, int value);
+
+void *putsymSt (symbolTable *table, char *name, char* value);
 
 void *putsymC (symbolTable *table, char *name, char* value);
 
-void *putsymF (symbolTable *table, char *name, float* value);
+//void *putsymF (symbolTable *table, char *name, float value);
 
-void *putsymD (symbolTable *table, char *name, double* value);
+void *putsymD (symbolTable *table, char *name, double value);
 
-void *putsymL (symbolTable *table, char *name, long* value);
+void *putsymL (symbolTable *table, char *name, long value);
 
-void *putsymS (symbolTable *table, char *name, short* value);
+void *putsymSh (symbolTable *table, char *name, short value);
 
